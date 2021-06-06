@@ -66,7 +66,7 @@ const FeatherIcons = async(() => import("../pages/icons/FeatherIcons"));
 const Blank = async(() => import("../pages/pages/Blank"));
 const InvoiceDetails = async(() => import("../pages/pages/InvoiceDetails"));
 const InvoiceList = async(() => import("../pages/pages/InvoiceList"));
-const Orders = async(() => import("../pages/pages/Orders"));
+const Orders = async(() => import("../pages/pages/Submissions"));
 const Pricing = async(() => import("../pages/pages/Pricing"));
 const Profile = async(() => import("../pages/pages/Profile"));
 const Settings = async(() => import("../pages/pages/Settings"));
@@ -183,7 +183,7 @@ const invoiceRoutes = {
 
 const orderRoutes = {
   id: "Submissions",
-  path: "/orders",
+  path: "/submissions",
   icon: <Activity />,
   component: Orders,
   children: null,

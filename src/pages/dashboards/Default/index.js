@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-
 import { Helmet } from "react-helmet";
-
 import {
   Grid,
   Divider as MuiDivider,
@@ -19,10 +17,49 @@ import BarChart from "./BarChart";
 // import DoughnutChart from "./DoughnutChart";
 import Stats from "./Stats";
 import Table from "./Table";
+import axios from "axios";
 
 const Divider = styled(MuiDivider)(spacing);
-
 const Typography = styled(MuiTypography)(spacing);
+
+let data = [];
+
+data.push({
+  DatasetName: "Fluo-C3DH-H157_training_02",
+  Date: "23-Feb-2021 ",
+  TRA: 0.834574,
+  SEG: 0.700411,
+  DET: 0.841509,
+});
+data.push({
+  DatasetName: "Fluo-C3DH-H157_training_01",
+  Date: "23-Mar-2020 ",
+  TRA: 0.434574,
+  SEG: 0.600411,
+  DET: 0.241509,
+});
+data.push({
+  DatasetName: "Testin_Fam",
+  Date: "23-Feb-2019 ",
+  TRA: 0.434574,
+  SEG: 0.600411,
+  DET: 0.241509,
+});
+
+// axios
+//   .get(
+//     "https://leverjs.net/cx/g*ctc2021*3d*Fluo-C3DH-H157_training_02.LEVER/constants"
+//     // {
+//     //   headers: { "Access-Control-Allow-Origin": "*" },
+//     // }
+//   )
+//   .then((response) => {
+//     console.log("Name: ", response.data["imageData"]["DatasetName"]);
+//     console.log("TRA: ", response.data["processInfo"]["ctc_eval"]["TRA"]);
+//     console.log("SEG: ", response.data["processInfo"]["ctc_eval"]["SEG"]);
+//     console.log("DET: ", response.data["processInfo"]["ctc_eval"]["DET"]);
+//     console.log("Date: ", response.data["processInfo"]["processDate"]);
+//   });
 
 function Default() {
   return (
@@ -52,7 +89,7 @@ function Default() {
         <Grid item xs={12} sm={12} md={6} lg={3} xl>
           <Stats
             title="Cell Tracking Challenge Submissions"
-            amount="125"
+            amount="37"
             chip="Today"
             percentageText="+26%"
             percentagecolor={green[500]}
@@ -96,12 +133,12 @@ function Default() {
         </Grid>
       </Grid> */}
       <Grid container spacing={6}>
-        <Grid item xs={12} lg={9}>
+        <Grid item xs={12} lg={12}>
           <BarChart />
         </Grid>
-        <Grid item xs={12} lg={3}>
+        {/* <Grid item xs={12} lg={3}>
           <Table />
-        </Grid>
+        </Grid> */}
       </Grid>
     </React.Fragment>
   );

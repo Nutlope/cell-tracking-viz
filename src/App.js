@@ -28,7 +28,7 @@ function App() {
     <React.Fragment>
       <Helmet
         titleTemplate="%s | Material App"
-        defaultTitle="Material App - React Admin & Dashboard Template"
+        defaultTitle="leverjs CTC Visualizer"
       />
       <StylesProvider jss={jss}>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>

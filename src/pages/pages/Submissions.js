@@ -62,48 +62,49 @@ const ToolbarTitle = styled.div`
   min-width: 150px;
 `;
 
-function createData(id, product, date, total, status, method) {
-  return { id, product, date, total, status, method };
+function createData(id, date, tra, seg, det) {
+  return { id, date, tra, seg, det };
 }
 
+let data = [];
+
+data.push({
+  DatasetName: "Fluo-C3DH-H157_training_02",
+  Date: "23-Feb-2021 ",
+  TRA: 0.834574,
+  SEG: 0.700411,
+  DET: 0.841509,
+});
+data.push({
+  DatasetName: "Fluo-C3DH-H157_training_01",
+  Date: "23-Mar-2020 ",
+  TRA: 0.434574,
+  SEG: 0.600411,
+  DET: 0.241509,
+});
+data.push({
+  DatasetName: "Testin_Fam",
+  Date: "23-Feb-2019 ",
+  TRA: 0.434574,
+  SEG: 0.600411,
+  DET: 0.241509,
+});
+
 const rows = [
+  createData("Testin_Fam", "23-Feb-2019", 0.434574, 0.600411, 0.241509),
   createData(
-    "000253",
-    "Salt & Pepper Grinder",
-    "2020-01-02",
-    "$32,00",
-    0,
-    "Visa"
+    "Fluo-C3DH-H157_training_02",
+    "23-Feb-2019",
+    0.434574,
+    0.600411,
+    0.241509
   ),
-  createData("000254", "Backpack", "2020-01-04", "$130,00", 0, "PayPal"),
   createData(
-    "000255",
-    "Pocket Speaker",
-    "2020-01-04",
-    "$80,00",
-    2,
-    "Mastercard"
-  ),
-  createData("000256", "Glass Teapot", "2020-01-08", "$45,00", 0, "Visa"),
-  createData(
-    "000257",
-    "Unbreakable Water Bottle",
-    "2020-01-09",
-    "$40,00",
-    0,
-    "PayPal"
-  ),
-  createData("000258", "Spoon Saver", "2020-01-14", "$15,00", 0, "Mastercard"),
-  createData("000259", "Hip Flash", "2020-01-16", "$25,00", 1, "Visa"),
-  createData("000260", "Woven Slippers", "2020-01-22", "$20,00", 0, "PayPal"),
-  createData("000261", "Womens Watch", "2020-01-22", "$65,00", 2, "Visa"),
-  createData(
-    "000262",
-    "Over-Ear Headphones",
-    "2020-01-23",
-    "$210,00",
-    0,
-    "Mastercard"
+    "Fluo-C3DH-H157_training_01",
+    "23-Feb-2019",
+    0.434574,
+    0.800411,
+    0.341509
   ),
 ];
 
@@ -134,13 +135,11 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: "id", alignment: "right", label: "Order ID" },
-  { id: "product", alignment: "left", label: "Product" },
+  { id: "id", alignment: "left", label: "Dataset Name" },
   { id: "date", alignment: "left", label: "Date" },
-  { id: "total", alignment: "right", label: "Total" },
-  { id: "status", alignment: "left", label: "Status" },
-  { id: "method", alignment: "left", label: "Payment Method" },
-  { id: "actions", alignment: "right", label: "Actions" },
+  { id: "TRA", alignment: "left", label: "TRA" },
+  { id: "SEG", alignment: "left", label: "SEG" },
+  { id: "DET", alignment: "left", label: "DET" },
 ];
 
 function EnhancedTableHead(props) {
@@ -200,7 +199,7 @@ let EnhancedTableToolbar = (props) => {
           </Typography>
         ) : (
           <Typography variant="h6" id="tableTitle">
-            Orders
+            Submissions
           </Typography>
         )}
       </ToolbarTitle>
@@ -322,11 +321,11 @@ function EnhancedTable() {
                         />
                       </TableCell>
 
-                      <TableCell align="right">#{row.id}</TableCell>
-                      <TableCell align="left">{row.product}</TableCell>
+                      <TableCell align="left">{row.id}</TableCell>
                       <TableCell align="left">{row.date}</TableCell>
-                      <TableCell align="right">{row.total}</TableCell>
-                      <TableCell>
+                      <TableCell align="left">{row.tra}</TableCell>
+                      <TableCell align="left">{row.seg}</TableCell>
+                      {/* <TableCell>
                         {row.status === 0 && (
                           <Chip
                             size="small"
@@ -354,18 +353,8 @@ function EnhancedTable() {
                             cancelled
                           />
                         )}
-                      </TableCell>
-                      <TableCell align="left">{row.method}</TableCell>
-                      <TableCell padding="none" align="right">
-                        <Box mr={2}>
-                          <IconButton aria-label="delete">
-                            <ArchiveIcon />
-                          </IconButton>
-                          <IconButton aria-label="details">
-                            <RemoveRedEyeIcon />
-                          </IconButton>
-                        </Box>
-                      </TableCell>
+                      </TableCell> */}
+                      <TableCell align="left">{row.det}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -394,12 +383,12 @@ function EnhancedTable() {
 function OrderList() {
   return (
     <React.Fragment>
-      <Helmet title="Orders" />
+      <Helmet title="Submissions" />
 
       <Grid justify="space-between" container spacing={24}>
         <Grid item>
           <Typography variant="h3" gutterBottom display="inline">
-            Orders
+            Submissions
           </Typography>
 
           <Breadcrumbs aria-label="Breadcrumb" mt={2}>
@@ -409,16 +398,8 @@ function OrderList() {
             <Link component={NavLink} exact to="/">
               Pages
             </Link>
-            <Typography>Orders</Typography>
+            <Typography>Submissions</Typography>
           </Breadcrumbs>
-        </Grid>
-        <Grid item>
-          <div>
-            <Button variant="contained" color="primary">
-              <AddIcon />
-              New Order
-            </Button>
-          </div>
         </Grid>
       </Grid>
 

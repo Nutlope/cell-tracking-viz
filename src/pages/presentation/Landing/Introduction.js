@@ -130,7 +130,7 @@ function Introduction() {
               <Box my={6}>
                 <Feature>
                   <FeatureText component="span" variant="h2" mb={1}>
-                    125
+                    37
                   </FeatureText>
                   <Typography variant="body1">Results</Typography>
                 </Feature>
