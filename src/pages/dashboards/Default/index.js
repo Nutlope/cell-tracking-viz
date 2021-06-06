@@ -16,8 +16,8 @@ import BarChart from "./BarChart";
 // import LineChart from "./LineChart";
 // import DoughnutChart from "./DoughnutChart";
 import Stats from "./Stats";
-import Table from "./Table";
-import axios from "axios";
+// import Table from "./Table";
+// import axios from "axios";
 
 const Divider = styled(MuiDivider)(spacing);
 const Typography = styled(MuiTypography)(spacing);

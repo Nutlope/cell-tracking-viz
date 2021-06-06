@@ -5,11 +5,8 @@ import { NavLink } from "react-router-dom";
 import Helmet from "react-helmet";
 
 import {
-  Box,
   Breadcrumbs as MuiBreadcrumbs,
-  Button,
   Checkbox,
-  Chip as MuiChip,
   Divider as MuiDivider,
   Grid,
   IconButton,
@@ -28,13 +25,9 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import { green, orange, red } from "@material-ui/core/colors";
-
 import {
-  Add as AddIcon,
   Archive as ArchiveIcon,
   FilterList as FilterListIcon,
-  RemoveRedEye as RemoveRedEyeIcon,
 } from "@material-ui/icons";
 
 import { spacing } from "@material-ui/system";
@@ -45,15 +38,6 @@ const Breadcrumbs = styled(MuiBreadcrumbs)(spacing);
 
 const Paper = styled(MuiPaper)(spacing);
 
-const Chip = styled(MuiChip)`
-  ${spacing};
-
-  background: ${(props) => props.shipped && green[500]};
-  background: ${(props) => props.processing && orange[700]};
-  background: ${(props) => props.cancelled && red[500]};
-  color: ${(props) => props.theme.palette.common.white};
-`;
-
 const Spacer = styled.div`
   flex: 1 1 100%;
 `;
@@ -62,7 +46,7 @@ const ToolbarTitle = styled.div`
   min-width: 150px;
 `;
 
-function createData(id, date, tra, seg, det) {
+function createData([id, date, tra, seg, det]) {
   return { id, date, tra, seg, det };
 }
 
@@ -90,23 +74,16 @@ data.push({
   DET: 0.241509,
 });
 
-const rows = [
-  createData("Testin_Fam", "23-Feb-2019", 0.434574, 0.600411, 0.241509),
-  createData(
-    "Fluo-C3DH-H157_training_02",
-    "23-Feb-2019",
-    0.434574,
-    0.600411,
-    0.241509
-  ),
-  createData(
-    "Fluo-C3DH-H157_training_01",
-    "23-Feb-2019",
-    0.434574,
-    0.800411,
-    0.341509
-  ),
-];
+let rows = [];
+
+for (let obj of data) {
+  let temp = [];
+  for (const [key, value] of Object.entries(obj)) {
+    temp.push(value);
+  }
+  console.log(temp);
+  rows.push(createData(temp));
+}
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
