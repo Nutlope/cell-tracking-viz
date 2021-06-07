@@ -65,7 +65,7 @@ function Default() {
         <Grid item xs={12} sm={12} md={6} lg={3} xl>
           <Stats
             title="Cell Tracking Challenge Submissions"
-            amount="37"
+            amount="35"
             chip="Today"
             percentageText="+26%"
             percentagecolor={green[500]}
@@ -74,7 +74,7 @@ function Default() {
         <Grid item xs={12} sm={12} md={6} lg={3} xl>
           <Stats
             title="Average SEG Score"
-            amount="0.74"
+            amount="0.59"
             chip="Today"
             percentageText="-14%"
             percentagecolor={red[500]}
@@ -83,7 +83,7 @@ function Default() {
         <Grid item xs={12} sm={12} md={6} lg={3} xl>
           <Stats
             title="Average TRA Score"
-            amount="0.85"
+            amount="0.81"
             chip="Today"
             percentageText="+18%"
             percentagecolor={green[500]}
@@ -92,7 +92,7 @@ function Default() {
         <Grid item xs={12} sm={12} md={6} lg={3} xl>
           <Stats
             title="Average DET Score"
-            amount="0.93"
+            amount="0.82"
             chip="Today"
             percentageText="-9%"
             percentagecolor={red[500]}

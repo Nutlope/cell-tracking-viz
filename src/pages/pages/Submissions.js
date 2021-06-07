@@ -305,6 +305,25 @@ data.push({
   DET: 0,
 });
 
+// Calculating average SEG, TRA, and DET
+
+let seg = [];
+let tra = [];
+let det = [];
+for (let obj of data) {
+  tra.push(obj["TRA"]);
+  seg.push(obj["SEG"]);
+  det.push(obj["DET"]);
+}
+
+let average_seg = seg.reduce((a, b) => a + b) / seg.length;
+let average_det = det.reduce((a, b) => a + b) / det.length;
+let average_tra = tra.reduce((a, b) => a + b) / tra.length;
+
+console.log("avg of seg is: ", average_seg); // 0.5904057222222223
+console.log("avg of det is: ", average_det); // 0.8167496944444443
+console.log("avg of tra is: ", average_tra); // 0.8084937499999998
+
 let rows = [];
 
 for (let obj of data) {
@@ -313,7 +332,6 @@ for (let obj of data) {
     temp.push(value);
     console.log(key);
   }
-  console.log(temp);
   rows.push(createData(temp));
 }
 

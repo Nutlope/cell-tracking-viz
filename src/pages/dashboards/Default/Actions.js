@@ -27,7 +27,7 @@ function Actions() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        Today: May 24
+        Today: June 7
       </Button>
       <Menu
         id="simple-menu"
