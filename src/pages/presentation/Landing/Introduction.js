@@ -195,6 +195,7 @@ function Introduction() {
                 <Image
                   alt="leverjs Dashboard"
                   src={`/static/img/screenshots/main-dashboard.png`}
+                  w={500}
                 />
               </NavLink>
             </ImageWrapper>
