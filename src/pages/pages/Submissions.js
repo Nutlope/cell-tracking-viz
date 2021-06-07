@@ -311,6 +311,7 @@ for (let obj of data) {
   let temp = [];
   for (const [key, value] of Object.entries(obj)) {
     temp.push(value);
+    console.log(key);
   }
   console.log(temp);
   rows.push(createData(temp));
