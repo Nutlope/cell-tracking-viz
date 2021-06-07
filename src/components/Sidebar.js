@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { withTheme } from "styled-components/macro";
+import styled from "styled-components/macro";
 import { rgba } from "polished";
 import { NavLink, withRouter } from "react-router-dom";
 import { darken } from "polished";
@@ -23,9 +23,6 @@ import {
 } from "@material-ui/core";
 
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
-
-import { blue } from "@material-ui/core/colors";
-
 import { sidebarRoutes as routes } from "../routes/index";
 
 const Box = styled(MuiBox)(spacing);
