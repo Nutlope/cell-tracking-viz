@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components/macro";
+import styled, { withTheme } from "styled-components/macro";
 import { rgba } from "polished";
 import { NavLink, withRouter } from "react-router-dom";
 import { darken } from "polished";
@@ -74,7 +74,7 @@ const Brand = styled(ListItem)`
 `;
 
 const BrandChip = styled(Chip)`
-  background-color: ${blue[700]};
+  background-color: ${(props) => props.theme.palette.secondary.main};
   border-radius: 5px;
   color: ${(props) => props.theme.palette.common.white};
   font-size: 55%;
